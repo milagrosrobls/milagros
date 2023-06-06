@@ -49,14 +49,14 @@ const { title } = Astro.props as Props;
 				</div>
 
 				<div id="menu">
-					<div id="mainListDiv" class="main_list">
+					
 						<ul id="navlinks">
 							<li><a href="/aboutus">About Us</a></li>
 							<li><a href="#">Contact</a></li>
 							<li><a href="#">Merch</a></li>
 							<li><a href="#">Other Pages</a></li>
 						</ul>
-					</div>
+					
 				</div>
 			</nav>
 			<slot />
@@ -75,6 +75,17 @@ const { title } = Astro.props as Props;
 			background-image: url("/fondo.jpg");
 			background-position: inherit;
 		}
-		
+		@media (min-width: 768px){
+		#menu {
+		display: flex;
+		}
+		#burger{		
+		display: none;		
+			}
+		}
+		#navlinks{
+		display: flex;
+		gap: 20px;
+		}
 	</style>
 </html>
