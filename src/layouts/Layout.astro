@@ -26,7 +26,9 @@ const { title } = Astro.props as Props;
 						/>
 					</a>
 				</div>
+				<!--  esta es la hamburguesa -->
 				<div id="burger">
+				
 					<button class="relative group">
 						<div
 							class="relative flex items-center justify-center rounded-full w-[50px] h-[50px] transform transition-all bg-slate-700 ring-0 ring-gray-300 hover:ring-8 group-focus:ring-4 ring-opacity-30 duration-200 shadow-md"
@@ -49,14 +51,12 @@ const { title } = Astro.props as Props;
 				</div>
 
 				<div id="menu">
-					
-						<ul id="navlinks">
-							<li><a href="/aboutus">About Us</a></li>
-							<li><a href="#">Contact</a></li>
-							<li><a href="#">Merch</a></li>
-							<li><a href="#">Other Pages</a></li>
-						</ul>
-					
+					<ul id="navlinks">
+						<li><a href="/aboutus">About Us</a></li>
+						<li><a href="#">Contact</a></li>
+						<li><a href="#">Merch</a></li>
+						<li><a href="#">Other Pages</a></li>
+					</ul>
 				</div>
 			</nav>
 			<slot />
@@ -65,27 +65,50 @@ const { title } = Astro.props as Props;
 	<style>
 		#menu {
 			display: none;
+			width: 100%; /* oculta el elemento */
 		}
 		#navbar {
-			display: flex;
-			justify-content: space-between;
+			display: flex; /* coloca las cajas como si fueran celdas de tablas,
+			 con un comportanmiento predecible y adaptable */
+			flex-wrap: wrap;/*- son obligados a permanecer en una misma
+			 linea o pueden fluir en varias lineas, pero wrap se refiere a varias lineas*/
+			justify-content: space-between; /* define como el navegador distribuye el espacio entre y alrededor de los items flex*/
 			margin: 20px;
 		}
 		body {
 			background-image: url("/fondo.jpg");
 			background-position: inherit;
 		}
-		@media (min-width: 768px){
-		#menu {
-		display: flex;
-		}
-		#burger{		
-		display: none;		
+		@media (min-width: 768px) {
+			#menu {
+				display: flex;
 			}
-		}
-		#navlinks{
-		display: flex;
-		gap: 20px;
+			#burger {
+				display: none;
+			}
+			#navlinks {
+				display: flex;
+				gap: 20px;
+			}
 		}
 	</style>
 </html>
+
+<script is:inline>
+	// declaro una constante para el elemento con id burger
+	const burger = document.getElementById("burger");
+
+	function burgerclick() {
+		const menu = document.getElementById("menu");
+		// preguntamos si el elemento esta oculto
+		if (menu.style.display === "none") {
+			// si esta oculto lo muestro
+			menu.style.display = "flex";
+		} else {
+			// si esta no oculto lo tengo que ocultar de vuelta
+			menu.style.display = "none";
+		}
+	}
+	// añadimos un escuhadpor al darle click a la burge se ejecuta la funcion 
+	burger.addEventListener("click", burgerclick);
+</script>
