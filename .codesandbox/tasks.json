@@ -22,7 +22,16 @@
     "install": {
       "name": "Install Dependencies",
       "command": "npm install",
-      "restartOn": { "files": ["package-lock.json"] }
+      "restartOn": {
+        "files": [
+          "package-lock.json"
+        ],
+        "branch": false
+      }
+    },
+    "sobremi2.astro": {
+      "name": "sobremi2.astro",
+      "command": "sobremi2.astro"
     }
   }
 }
