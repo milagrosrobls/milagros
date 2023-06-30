@@ -28,7 +28,6 @@ const { title } = Astro.props as Props;
 				</div>
 				<!--  esta es la hamburguesa -->
 				<div id="burger">
-				
 					<button class="relative group">
 						<div
 							class="relative flex items-center justify-center rounded-full w-[50px] h-[50px] transform transition-all bg-slate-700 ring-0 ring-gray-300 hover:ring-8 group-focus:ring-4 ring-opacity-30 duration-200 shadow-md"
@@ -52,7 +51,7 @@ const { title } = Astro.props as Props;
 
 				<div id="menu">
 					<ul id="navlinks">
-						<li><a href="/aboutus">About Us</a></li>
+						<li><a href="/aboutus">aboutus</a></li>
 						<li><a href="#">Contact</a></li>
 						<li><a href="#">Merch</a></li>
 						<li><a href="#">Other Pages</a></li>
@@ -64,24 +63,29 @@ const { title } = Astro.props as Props;
 	</body>
 	<style>
 		#menu {
-			display: none;
-			width: 100%; /* oculta el elemento */
+			display: none; /* oculta el elemento */
+			width: 100%;
 		}
 		#navbar {
 			display: flex; /* coloca las cajas como si fueran celdas de tablas,
 			 con un comportanmiento predecible y adaptable */
-			flex-wrap: wrap;/*- son obligados a permanecer en una misma
+			flex-wrap: wrap; /*- son obligados a permanecer en una misma
 			 linea o pueden fluir en varias lineas, pero wrap se refiere a varias lineas*/
 			justify-content: space-between; /* define como el navegador distribuye el espacio entre y alrededor de los items flex*/
 			margin: 20px;
 		}
 		body {
-			background-image: url("/fondo.jpg");
-			background-position: inherit;
+			height: 100dvh; /*tamaño de cuerpo de pagina*/
+			background-image: url("/fondo.jpg"); /*para añadir un fondo*/
+			background-repeat: no-repeat; /* contra para que la imagen del fondo
+			 no se repita*/
+			background-size: cover; /*nos permite asignar un nuevo valor de ancho y alto
+			para nuetra imagen de acuerdo al tamaño de la pantalla*/
 		}
 		@media (min-width: 768px) {
 			#menu {
 				display: flex;
+				width: auto; /* establece el ancho de un elemento*/
 			}
 			#burger {
 				display: none;
@@ -98,10 +102,12 @@ const { title } = Astro.props as Props;
 	// declaro una constante para el elemento con id burger
 	const burger = document.getElementById("burger");
 
-	function burgerclick() {
+	function burgerClick() {
 		const menu = document.getElementById("menu");
+		// tenemos el estilo de menu actualmente en la pantalla//
+		const estiloComputado = window.getComputedStyle(menu);
 		// preguntamos si el elemento esta oculto
-		if (menu.style.display === "none") {
+		if (estiloComputado.display === "none") {
 			// si esta oculto lo muestro
 			menu.style.display = "flex";
 		} else {
@@ -109,6 +115,6 @@ const { title } = Astro.props as Props;
 			menu.style.display = "none";
 		}
 	}
-	// añadimos un escuhadpor al darle click a la burge se ejecuta la funcion 
-	burger.addEventListener("click", burgerclick);
+	// añadimos un escuhadpor al darle click a la burge se ejecuta la funcion
+	burger.addEventListener("click", burgerClick);
 </script>
