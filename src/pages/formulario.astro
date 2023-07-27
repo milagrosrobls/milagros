@@ -1,0 +1,38 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="contacto">
+    <body>
+        <main class="flex flex-col items-center" <h1>
+            Pagina para encontrar mis redes sociales:
+
+            <h2>Tambien me podes contactar mediante un mensaje:</h2>
+            <form class="columna" name="contacto" method="POST" action="https://formsubmit.co/robleslopezmilagros@gmail.com">
+
+                <div class="fila">
+                    <div class="columna">
+                        <label for="#nombre">Nombre</label>
+                        <input type="text" name="nombre" />
+                    </div>
+                    <div class="columna">
+                        <label for="#apellido">Apellido</label>
+                        <input type="text" name="apellido" />
+                    </div>
+                </div>
+                <div class="columna">
+                    <label for="#mail">Mail</label>
+                    <input type="text" name="mail" />
+                </div>
+                <div class="columna">
+                    <label for="#mensaje">Mensaje</label>
+                    <input type="text" name="mensaje" />
+                </div>
+                <button class="bg-orange-400 p-2 my-2 w-20" type="submit">
+                    Enviar</button
+                >
+            </form>
+        </main>
+    </body>
+</Layout>
+

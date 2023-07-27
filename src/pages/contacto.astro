@@ -1,0 +1,109 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="contacto">
+    <body>
+        <main class="flex flex-col items-center" <h1>
+            Pagina para encontrar mis redes sociales:
+
+            <h2>Tambien me podes contactar mediante un mensaje:</h2>
+            <form class="columna" id="contacto">
+                <div class="fila">
+                    <div class="columna">
+                        <label for="#nombre">Nombre</label>
+                        <input type="text" id="nombre" />
+                    </div>
+                    <div class="columna">
+                        <label for="#apellido">Apellido</label>
+                        <input type="text" id="apellido" />
+                    </div>
+                </div>
+                <div class="columna">
+                    <label for="#mail">Mail</label>
+                    <input type="text" id="mail" />
+                </div>
+                <div class="columna">
+                    <label for="#mensaje">Mensaje</label>
+                    <input type="text" id="mensaje" />
+                </div>
+                <button class="bg-orange-400 p-2 my-2 w-20" type="submit">
+                    Enviar</button
+                >
+            </form>
+        </main>
+    </body>
+    <style>
+        .fila {
+            display: flex;
+            flex-direction: row;
+            gap: 24px;
+        }
+
+        .columna {
+            display: flex; /* permite que sea flexible el contenedor */
+            flex-direction: column; /* hace que fluya en direccion de columna */
+            gap: 8px; /* separa cada columna de la otra */
+
+            width: 100%;
+        }
+        #contacto {
+            max-width: 480px;
+            padding: 40px;
+        }
+
+        body {
+            background-color: gray; /*configura el color del fondo de esta pagina*/
+        }
+        h1 {
+            font-size: medium;
+            text-align: center; /*alinea el texto dentro del elemento*/
+            font-style: italic;
+        }
+        #redes {
+            display: flex; /*determina la forma en  la que el/los elemento(s) se presentan en la pantalla*/
+            justify-content: space-between; /*Alinea elementos flexibles a lo largo del eje principal de la línea actual del contenedor flexible*/
+            margin: 100px;
+        }
+        h2 {
+            font-size: medium;
+            text-align: center; /*alinea el texto dentro del elemento*/
+            font-style: italic;
+        }
+        .mailmsj {
+            text-align: center;
+        }
+        .nomape {
+            text-align: center;
+        }
+    </style>
+</Layout>
+
+<script is:inline>
+//
+const form = document.getElementById("contacto");
+
+form.addEventListener("submit", function (envent) {
+    envent.preventDefault();
+    const inputs = form.elements;
+    let nombre = inputs.nombre.value;
+    console.log(form.elements);
+    let valido = true;
+    for (let i = 0; i < form.elements.length; i = i + 1) {
+        const elemnto = form[i];
+        console.log("[for]", form[i], valido);
+        if (form[i].value === "") {
+            form[i].style.borderColor = "red";
+            form[i].style.borderWidth = "1px";
+            valido = false;
+            
+        }
+    }
+    if (valido) {
+        alert("mensaje exitoso");
+    } else {
+        alert("complete");
+    }
+});
+</script>
+
