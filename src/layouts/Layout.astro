@@ -52,13 +52,13 @@ const { title } = Astro.props as Props;
 				<div id="menu">
 					<ul id="navlinks">
 						<li><a href="/aboutus">aboutus</a></li>
-						<li><a href="#">Contact</a></li>
-						<li><a href="#">Merch</a></li>
-						<li><a href="#">Other Pages</a></li>
+						<li><a href="/contacto">Contact</a></li>
+						<li><a href="/formulario">Formulario</a></li>
+						<li><a href="#"></a></li>
 					</ul>
 				</div>
 			</nav>
-			<slot />
+			<div class="p-10"><slot /></div>
 		</header>
 	</body>
 	<style>
@@ -96,25 +96,25 @@ const { title } = Astro.props as Props;
 			}
 		}
 	</style>
-</html>
 
-<script is:inline>
-	// declaro una constante para el elemento con id burger
-	const burger = document.getElementById("burger");
+	<script is:inline>
+		// declaro una constante para el elemento con id burger
+		const burger = document.getElementById("burger");
 
-	function burgerClick() {
-		const menu = document.getElementById("menu");
-		// tenemos el estilo de menu actualmente en la pantalla//
-		const estiloComputado = window.getComputedStyle(menu);
-		// preguntamos si el elemento esta oculto
-		if (estiloComputado.display === "none") {
-			// si esta oculto lo muestro
-			menu.style.display = "flex";
-		} else {
-			// si esta no oculto lo tengo que ocultar de vuelta
-			menu.style.display = "none";
+		function burgerClick() {
+			const menu = document.getElementById("menu");
+			// tenemos el estilo de menu actualmente en la pantalla//
+			const estiloComputado = window.getComputedStyle(menu);
+			// preguntamos si el elemento esta oculto
+			if (estiloComputado.display === "none") {
+				// si esta oculto lo muestro
+				menu.style.display = "flex";
+			} else {
+				// si esta no oculto lo tengo que ocultar de vuelta
+				menu.style.display = "none";
+			}
 		}
-	}
-	// añadimos un escuhadpor al darle click a la burge se ejecuta la funcion
-	burger.addEventListener("click", burgerClick);
-</script>
+		// añadimos un escuhadpor al darle click a la burge se ejecuta la funcion
+		burger.addEventListener("click", burgerClick);
+	</script>
+</html>

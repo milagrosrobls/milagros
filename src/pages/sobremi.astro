@@ -15,3 +15,23 @@ import Card from "../components/Card.astro";
 		background-color: "";
 	}
 </style>
+
+<script is:inline>
+  const from = document.getElementById("contact");
+   form.addEventListener("submit",(event) => {
+   //stop form disminission//
+   event.prevetDefault();
+   
+      const name = form.elements.nombre;
+	  const apellido = form.elements ["apellido"];
+	  if (name.value ==="") {
+  name.style.bordeColor = "red";
+name.bordeWidth = "1px"; 
+	alert("no podra ingresar");
+	   } else {
+	   alert("se envio" + name.value * " " * apellido.value);
+	   }
+	   });
+	   </script>
+	
+	   
