@@ -2,36 +2,36 @@
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
 ---
-<Layout title="sobre mi"> 
-<main>
+
+<Layout title="sobre mi">
+	<main>
 		<h1>Pagina para taller</h1>
 		<h1>Proyecto para taller de redes</h1>
 		<section>
-			<ul role="list" class="grid-card">
-        </main>
-		</Layout>
-	<style>
-	.background {
-		background-color: "";
-	}
-</style>
+			<ul role="list" class="grid-card"></ul>
+		</section>
+		<style>
+			.background {
+				background-color: "";
+			}
+		</style>
 
-<script is:inline>
-  const from = document.getElementById("contact");
-   form.addEventListener("submit",(event) => {
-   //stop form disminission//
-   event.prevetDefault();
-   
-      const name = form.elements.nombre;
-	  const apellido = form.elements ["apellido"];
-	  if (name.value ==="") {
-  name.style.bordeColor = "red";
-name.bordeWidth = "1px"; 
-	alert("no podra ingresar");
-	   } else {
-	   alert("se envio" + name.value * " " * apellido.value);
-	   }
-	   });
-	   </script>
-	
-	   
+		<script is:inline>
+			const from = document.getElementById("contact");
+			form.addEventListener("submit", (event) => {
+				//stop form disminission//
+				event.prevetDefault();
+
+				const name = form.elements.nombre;
+				const apellido = form.elements["apellido"];
+				if (name.value === "") {
+					name.style.bordeColor = "red";
+					name.bordeWidth = "1px";
+					alert("no podra ingresar");
+				} else {
+					alert("se envio" + name.value * " " * apellido.value);
+				}
+			});
+		</script>
+	</main>
+</Layout>
